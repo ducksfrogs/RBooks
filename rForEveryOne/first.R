@@ -40,3 +40,40 @@ is.na(z)
 is.null(z)
 z <- c(NULL, 2, 3, NULL, 4)
 z
+
+#data frame
+
+x <- 10:1
+y < -4:5
+q <- c("Hockey", "Football", "Baseball", "Curling", "Rugby", "Lacross", "BascketBall", "Tennis",
+       "Clicket", "Soccer")
+theDF <- data.frame(x, y, q)
+
+theDF <- data.frame(First=x, Second= y, Sport =q)
+theDF
+colnames(theDF)
+rownames(theDF)
+nrow(theDF)
+ncol(theDF)
+theDF[,3]
+theDF[2:4,]
+theDF[2,]
+theDF[,2:3]
+theDF['Sport']
+theDF[["Sport"]]
+
+
+#list
+
+list5 <- list(theDF, 1:10)
+
+list6 <- list(TheDataFrame=theDF, TheVector=1:10)
+list6[["TheDataFrame"]]$Sport
+list5[["3"]]$sport
+list5
+list5[[1]]$Sport
+
+#matrix
+
+A <- matrix(1:10, nrow = 5)
+B
