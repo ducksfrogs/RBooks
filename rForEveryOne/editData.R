@@ -16,3 +16,7 @@ Aid90s00s <- merge(x=Aid_90s, y=Aid_00s,
                    by.x=c("Country.Name", "Program.Name"),
                    by.y=c("Country.Name", "Program.Name"))
 head(Aid90s00s)
+
+require(plyr)
+Aid90s00sJoin <- join(x=Aid_90s, y=Aid_00s, by=c("Country.Name", "Program.Name"))
+head(Aid90s00sJoin)
