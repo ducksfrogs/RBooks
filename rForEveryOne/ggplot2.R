@@ -22,3 +22,26 @@ g <- ggplot(diamonds, aes(x=carat, y= price))
 g + geom_point(aes(color= color))
 
 g + geom_point(aes(color= color)) +facet_wrap(~color)
+g + geom_point(aes(color= color)) + facet_grid(cut ~ color)
+
+ggplot(diamonds, aes(x=carat)) + geom_histogram() + facet_wrap(~color)
+
+ggplot(diamonds, aes(y=carat, x=1)) + geom_boxplot()
+
+ggplot(diamonds, aes(y = carat, x=cut)) + geom_boxplot()
+
+ggplot(diamonds, aes(y=carat, x=cut)) +geom_violin()
+
+ggplot(diamonds, aes(y=carat, x = cut)) + geom_point() + geom_violin()
+
+ggplot(diamonds, aes(y=carat, x = cut)) +  geom_violin() +geom_point()
+
+
+data("economics")
+head(economics)
+ggplot(economics, aes(x=date, y=pop)) +geom_line()
+
+
+require(lubridate)
+economics$year <- year(economics$date)
+economics$month <- month(economics$date, label = TRUE)
