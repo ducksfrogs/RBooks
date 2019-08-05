@@ -36,3 +36,11 @@ diamondsDT[, list(price = mean(price)), by=cut]
 diamondsDT[, list(price = mean(price)), by=list(cut, color)]
 
 diamondsDT[, list(price = mean(price), carat= mean(carat)), by=cut]
+
+
+diamondsDT[, list(price= mean(price), carat = mean(carat)), by=cut]
+diamondsDT[, list(price= mean(price), carat=mean(carat), 
+                  caratSum = sum(carat)), by=cut]
+
+diamondsDT[, list(price= mean(price), carat=mean(carat)), 
+                  by=list(cut, color)]
