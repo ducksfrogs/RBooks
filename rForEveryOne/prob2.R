@@ -51,3 +51,36 @@ ggplot(econMelt, aes(x=x, y=y)) +
                        limits = c(-1, 1)) + 
   theme_minimal() +
   labs(x=NULL, y = NULL)
+
+
+m <- c(9, 9, NA, 3, NA, 5, 8, 1, 10, 4)
+n <- c(2, NA, 1, 6, 6, 4, 1, 1, 6, 7)
+p <- c(8, 4, 3, 9, 10, NA, 3, NA, 9, 9)
+q <- c(10, 10, 7, 8, 4, 2, 8, 5, 5, 2)
+r <- c(1, 9, 7, 6, 5, 6, 2, 7, 9, 10)
+
+theMat <- cbind(m, n, p, q, r)
+cor(theMat, use="everything")
+cor(theMat, use="all.obs")
+cor(theMat, use = "complete.obs")
+cor(theMat, use = "na.or.complete")
+
+require(ggpairs)
+install.packages("ggpairs")
+data(tips, package = "reshape2")
+head(tips)
+GGally::ggpairs(tips)
+
+require(RXKCD)
+install.packages("RXKCD")
+
+getXKCD(which= "552")
+data(economics)
+require(ggplot2)
+data("economics")
+cov(economics$pce, economics$psavert)
+cov(economics[,c(2, 4:6)])
+head(economics)
+cor(economics[, c(2, 4:6)])
+identical(cov(economics$pce, economics$psavert),
+          cor(economics$pce, economics$psavert) * sd(economics$pce)* sd(economics$psavert))
