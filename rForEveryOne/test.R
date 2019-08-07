@@ -1,3 +1,5 @@
+require(ggplot2)
+data(tips, package = "reshape2")
 head(tips)
 unique(tips$sex)
 unique(tips$day)
