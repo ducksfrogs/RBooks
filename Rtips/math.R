@@ -31,3 +31,4 @@ a<- matrix(1:4, nrow = 2, ncol = 2)
 b <- matrix(0:3, 2,2)
 b
 a*(1:2)
+
