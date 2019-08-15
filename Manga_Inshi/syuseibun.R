@@ -13,4 +13,12 @@ plot(momo)
 eigen(mat_score)
 eigen(cor(mat_score))
 summary(momo)
-momo
+w2 <- prcomp(mat_score, scale. = T)
+summary(w2)
+plot(w2$x, type = "n")
+text(w2$x, rownames(mat_score))
+w2$x
+mat_score
+scaled_mat_score <- scale(mat_score)
+scaled_mat_score
+prcomp(scaled_mat_score)
