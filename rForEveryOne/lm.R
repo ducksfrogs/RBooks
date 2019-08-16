@@ -24,3 +24,8 @@ tipsByDay <- ddply(tips, "day", summarise,
 tipsInfo <- summary(tipsLM)
 
 tipsCoef <- as.data.frame(tipsInfo$coefficients[,1:2])
+tipsCoef <- within(tipsCoef, {
+                  Lower <- Estimate - qt(p=.9, df=tipsInfo$df[2]) * 'Std. Error'
+                  Upper <- Estimate + qt(p =0.90, df = tipsInfo$df[2]) * 'Std. Error'
+                  day <- rownames(tipsCoef)
+})
