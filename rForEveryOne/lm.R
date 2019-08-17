@@ -13,7 +13,7 @@ head(tips)
 tipsAnova <- aov(tip ~ day -1, data = tips)
 tipsLM <- lm(tip ~ day -1, data = tips)
 summary(tipsAnova)
-
+summary(tipsLM)
 require(plyr)
 tipsByDay <- ddply(tips, "day", summarise,
                    tip.mean = mean(tip), tip.sd= sd(tip),
@@ -25,7 +25,35 @@ tipsInfo <- summary(tipsLM)
 
 tipsCoef <- as.data.frame(tipsInfo$coefficients[,1:2])
 tipsCoef <- within(tipsCoef, {
-                  Lower <- Estimate - qt(p=.9, df=tipsInfo$df[2]) * 'Std. Error'
-                  Upper <- Estimate + qt(p =0.90, df = tipsInfo$df[2]) * 'Std. Error'
+                  Lower <- Estimate - qt(p = 0.90, df=tipsInfo$df[2]) * 'Std. Error'
+                  Upper <- Estimate + qt(p = 0.90, df = tipsInfo$df[2]) * 'Std. Error'
                   day <- rownames(tipsCoef)
 })
+
+#　重回帰
+
+housing <- read.table("http://www.jaredlander.com/data/housing.csv",
+                      sep = ',', header = T,
+                      stringsAsFactors = F)
+head(housing)
+names(housing) <- c("Neiborhood", "Class", "Units", "YearBuilt", "SqFt", "Income", "IncomperSqrt",
+                    "Expence", "ExpencePerSqFt", "NetIncome", "Value", "ValueperSqFt", "Boro")
+head(housing)
+
+ggplot(housing, aes(x= ValueperSqFt)) +
+  geom_histogram(binwidht =10) + labs(x="Value per Square Foot")
+
+ggplot(housing, aes(x = ValueperSqFt, fill= Boro)) +
+  geom_histogram(binwidth = 10) + labs(x="Value per Square Foot")
+
+ggplot(housing, aes(x = ValueperSqFt, fill= Boro)) +
+  geom_histogram(binwidth = 10) + labs(x="Value per Square Foot") +
+  facet_wrap(~Boro)
+
+
+ggplot(housing, aes(x=SqFt)) + geom_histogram()
+ggplot(housing, aes(x = Units)) + geom_histogram()
+ggplot(housing[housing$Units < 1000 ,], 
+       aes(x=SqFt)) + geom_histogram()
+ggplot(housing[housing$Units < 1000, ],
+       aes(x = Units)) +geom_histogram()
