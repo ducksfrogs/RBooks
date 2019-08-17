@@ -1,0 +1,8 @@
+install.packages("coefplot")
+install.packages("psych")
+install.packages("psy")
+install.packages("GPArotation")
+install.packages("MCMCpack")
+install.packages("moments")
+install.packages("fBasics")
+install.packages("gapminder")
