@@ -56,10 +56,29 @@ presidents <- readHTMLTable(theUrl, which = 3, as.data.frame = TRUE,
                             stringsAsFactors=FALSE)
 tail(presidents)
 
-presidents <- presidents[1:64, ]
+presidents <- presidents[1:65, ]
+
 
 require(stringr)
 yearList <- str_split(string = presidents$YEAR, pattern = "-")
 head(yearList)
 
 yearMatrix <- data.frame(Reduce(rbind, yearList))
+tail(presidents$YEAR)
+head(yearMatrix)
+names(yearMatrix) <- c("Start", "Stop")
+presidents <- cbind(presidents, yearMatrix)
+presidents$Start <- as.numeric(as.character(presidents$Start))
+presidents$Stop <- as.numeric(as.character(presidents$Stop))
+head(presidents)
+tail(presidents)
+
+#regex
+library(stringr)
+install.packages("stringr")
+johnPos <- str_detect(string = presidents$PRESIDENT, pattern = "John")
+presidents[johnPos, c("YEAR", "PRESIDENT", "Start", "Stop")]
+badSearch <- str_detect(presidents$PRESIDENT, "john")
+
+goodSearch <- str_detect(presidents$PRESIDENT, ignore.case("John"))
+str_detect(presidents$PRESIDENT, ignore.case("john") )
