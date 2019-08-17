@@ -57,3 +57,18 @@ ggplot(housing[housing$Units < 1000 ,],
        aes(x=SqFt)) + geom_histogram()
 ggplot(housing[housing$Units < 1000, ],
        aes(x = Units)) +geom_histogram()
+
+ggplot(housing, aes(x = SqFt, y= ValueperSqFt)) + geom_point()
+ggplot(housing, aes(x = Units, y= ValueperSqFt)) + geom_point()
+
+ggplot(housing[housing$Units < 1000 , ], aes(x = SqFt, y = ValueperSqFt)) + geom_point()
+ggplot(housing[housing$Units < 1000 , ], aes(x = Units, y = ValueperSqFt)) + geom_point()
+
+sum(housing$Units >=1000)
+housing <- housing[housing$Units < 1000, ]
+
+ggplot(housing, aes(x = SqFt, y= ValueperSqFt)) + geom_point()
+ggplot(housing, aes(x = Units, y= ValueperSqFt)) + geom_point()
+
+ggplot(housing[housing$Units < 1000 , ], aes(x = SqFt, y = ValueperSqFt)) + geom_point()
+ggplot(housing[housing$Units < 1000 , ], aes(x = Units, y = ValueperSqFt)) + geom_point()
