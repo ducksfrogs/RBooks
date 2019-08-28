@@ -9,3 +9,4 @@ myfa <- function(X, m=1,...){
 SD_dat <- read.csv("data/Ski.csv", header =T, row.names = 1)
 SD_fa <- myfa(SD_dat, 3)
 SD_fa
+
