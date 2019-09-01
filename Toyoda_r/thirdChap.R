@@ -1,0 +1,5 @@
+library(MASS)
+install.packages("mvtnorm")
+library(mvrnorm)
+install.packages("polycor")
+install.packages("mvtnorm")
