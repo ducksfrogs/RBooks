@@ -14,3 +14,5 @@ logLik(fit)
 plot(d$x, d$y, pch=c(21,19)[d$f])
 xx <- seq(min(d$x), max(d$x), length=100)
 lines(xx, exp(1.29 + 0.0757*xx), lwd=2)
+
+plot(xx, exp(xx))

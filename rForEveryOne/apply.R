@@ -89,3 +89,4 @@ dlply(baseball, "id", nrow)
 system.time(dlply(baseball, "id", nrow))
 iBaseball <- idata.frame(baseball)
 system.time(dlply(iBaseball, "id", nrow))
+

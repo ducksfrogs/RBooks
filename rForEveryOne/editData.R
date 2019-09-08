@@ -43,11 +43,6 @@ ggplot(melAgg, aes(x = Year, y=Dollars)) +
 
 
 
-
-
-
-
-
 require(XML)
 load("data/presidents.rdata")
 theUrl <- "http://www.loc.gov/rr/print/list/057_chron.html"

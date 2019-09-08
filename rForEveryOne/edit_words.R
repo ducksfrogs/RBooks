@@ -21,3 +21,4 @@ presidents <- cbind(presidents ,yearMatrix)
 
 head(presidents)
 tail(presidents)
+
