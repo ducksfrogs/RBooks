@@ -23,3 +23,20 @@ table(x)
 y = rep(1:5, c(0,2,4,5,3))
 table(y)
 t.test(x,y)
+
+Shin_tai <- data.frame(height, weight)
+Shin_tai
+row.names(Shin_tai) <- c("Taro", "Jiro", "Sabro")
+Shin_tai
+Shin_tai$height
+Shin_tai$sex <- c('m','f','f')
+Shin_tai
+Shin_tai$bmi <- round(Shin_tai$weight/(Shin_tai$height/100)^2)
+Shin_tai
+write.csv(Shin_tai, "X.csv", quote = FALSE, row.names = F, fileEncoding = 'CP932', eol="\r\n")
+
+
+x = rnorm(100000)
+x
+hist(x)
+hist(x, col = "gray", main = "ヒストグラムの例")
